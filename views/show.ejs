@@ -1,0 +1,119 @@
+<html>
+
+<head>
+    <title>Security Systems</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+    <link rel="stylesheet" href="/stylesheets/div.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script> -->
+    <!-- 
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script> -->
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <!-- <!-- <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script> -->-->
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .top {
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            width: 100%;
+        }
+        
+        body {
+            background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .5)), url("/stylesheets/img.jpg");
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ui fixed inverted menu">
+        <div class="header item"><i class="shield alternate icon" style="font-size:2em"></i>Security Systems</div>
+        <a href="/" class="item">Home</a>
+        <a href="/users" class="item">Users</a>
+
+        <a class="header item right" href="/admin"><i class="icon setting"></i>
+
+    </div>
+    <br><br><br><br>
+
+    <div class="container">
+        <div class="card-deck">
+            <div class="card col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12" style="background:rgba(0,0,255,0.4)">
+                <div class="card-body text-center" style="margin-left:0;padding:0px">
+                    <!-- <br><br><br> -->
+                    <h5 class="card-title top" style="padding:6px;margin: 0;">Intrusion</h5>
+                    <h2 class="ui center aligned icon huge header" id="intrusion">
+                </div>
+            </div>
+            <div class="card col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12" style="background:rgba(255,0,0,0.4) ">
+                <div class="card-body text-center " style="padding:0;margin: 0; ">
+                    <h5 class="card-title top " style="margin-left:0;padding:6px ">Temperature</h5>
+                    <h2 class="ui center aligned icon huge header" id="temperature">
+                        <!-- <i class="circular users icon"></i> -->
+                        <!-- <i class="thermometer quarter icon"></i> Friends -->
+                    </h2>
+                </div>
+            </div>
+            <div class="card col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12" style="background:rgba(0,0,0,0.4) ">
+                <div class="card-body text-center " style="padding:0;margin: 0; ">
+                    <h5 class="card-title top " style="margin-left:0;padding:6px ">Distance</h5>
+                    <h2 class="ui center aligned icon huge header" id="distance">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyBERcUEedqy_K9qN7Uh5SF0BaFQYKg_vgg",
+            authDomain: "sample-ef4fd.firebaseapp.com",
+            databaseURL: "https://sample-ef4fd.firebaseio.com",
+            projectId: "sample-ef4fd",
+            storageBucket: "sample-ef4fd.appspot.com",
+            messagingSenderId: "799625494564",
+            appId: "1:799625494564:web:dd99b6e2116800bf8b18b1"
+        };
+        firebase.initializeApp(firebaseConfig);
+        var database = firebase.database();
+        var ref = database.ref("users");
+        ref.on('value', function gotData(data) {
+
+            var users = data.val();
+            console.log(users);
+            var keys = Object.keys(users);
+            var x = " ";
+            var y = " ";
+            var z = " ";
+
+            for (var i = 0; i < keys.length; i++) {
+                var k = keys[i];
+                console.log(keys[i]);
+                console.log(users[k]);
+                // x += "<br>" + keys[i] + " : " + users[k] + "\n";
+                x = "<br>" + users.temp + "° C";
+                y = "<br>" + users.intr + "\n";
+                z = "<br>" + users.dist + "\n";
+                if (users.temp > 50) x += "<br> Alert !!!!"
+            }
+            document.getElementById("temperature").innerHTML = x;
+            document.getElementById("intrusion").innerHTML = y;
+            document.getElementById("distance").innerHTML = z + " km";
+        }, function errData(err) {
+            console.log(err);
+        });
+    </script>
+</body>
+
+</html>

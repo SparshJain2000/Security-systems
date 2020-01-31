@@ -1,0 +1,44 @@
+<% include partials/header %>
+    <div class="ui fixed inverted menu">
+        <div class="header item"><i class="shield alternate icon" style="font-size:2em"></i>Security Systems</div>
+        <a href="/users" class="orange item ">Users</a>
+        <a href="/" class="orange item ">Home</a>
+        <!-- <a href="/blogs/new" class="red item">New Post</a> -->
+        <div class="item active right" style="background:#4b5320;padding:0">
+            <% if(!currentUser){ %>
+                <a href="/login" class="item right" style="height:100%">LOG IN</a>
+                <% }else{ %>
+                    <a href="/logout" class="item right" style="height:100%">LOG OUT</a>
+                    <%}%>
+        </div>
+    </div>
+    <div class="ui middle aligned center aligned grid segment" style="background:rgba(0,0,0,.2);border:0px solid transparent;border-radius:5px;width:45%;margin:0 auto auto auto;padding-top:8em">
+        <div class="column">
+            <h2 class="ui image header" style="color:#4b5320">
+                <i class="shield alternate icon" style="font-size:3em;width:15%" align="center"></i><br>
+                <div class="content">Security Systems</div><br>
+            </h2>
+            <div class="ui stacked segment" style="background:rgba(0,0,0,.2);border:0px solid transparent;border-radius:5px;">
+                <div class="field">
+
+                    <a class="ui positive active massive button" style="width:60%" href="/users/new">
+                        <i class="user icon"></i> Add User </a>
+                </div>
+                <br>
+                <div class="field">
+
+                    <a class="ui primary active massive button" style="width:60%" href="/newUser">
+                        <i class="icon settings"></i> Add Admin </a>
+                </div>
+                <br>
+                <div class="field">
+
+                    <a class="ui secondary active massive button" href="/users" style="width:60%">
+                        <i class="users icon"></i> View Users </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <% include partials/footer %>

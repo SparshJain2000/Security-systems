@@ -1,0 +1,54 @@
+<% include partials/header %>
+    <div class="ui fixed inverted menu">
+
+        <div class="header item"><i class="alternate shield icon" style="font-size:2em"></i>Security Systems</div>
+
+        <a href="/users" class="orange item">Users</a>
+        <a href="/" class="red item">Home</a>
+        <a class="header item right" href="/admin"><i class="icon setting"></i></a>
+    </div>
+    <div class="ui container segment" style="width:45%;padding-top:7em;margin:auto auto auto auto;background: rgba(0,0,0,.2);">
+        <div class="ui middle center aligned segment" style="border:0;background: rgba(0,0,0,0);">
+            <h2 class="ui image header" style="color:white">
+                <i class="alternate shield icon" style="font-size:4em;width:15%"></i><br>
+                <div class="content">Security Systems</div><br>
+                <div class="content">
+                    Sign-in
+                </div>
+            </h2>
+        </div>
+        <form class="ui form" method="POST" action="/newUser">
+            <div class="field">
+                <label>Name</label>
+                <div class="two fields">
+                    <div class="field">
+                        <input type="text" name="user[first_name]" placeholder="First Name">
+                    </div>
+                    <div class="field">
+                        <input type="text" name="user[last_name]" placeholder="Last Name">
+                    </div>
+                </div>
+                <label>E-mail</label>
+                <div class="two fields">
+                    <div class="field">
+                        <input type="text" name="user[username]" placeholder="E-Mail">
+                    </div>
+                    <div class="field">
+                        <input type="password" name="user[password]" placeholder="Password">
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label>Id</label>
+                <input type="password" name="id" placeholder="Your Id">
+            </div>
+            <div class="field">
+                <div class="ui checkbox">
+                    <input type="checkbox" tabindex="0" class="">
+                    <label>I agree to the Terms and Conditions</label>
+                </div>
+            </div>
+            <button class="ui button active" style="background:#4b5320;color:white" type="submit">Submit</button>
+        </form>
+    </div>
+    <% include partials/footer %>

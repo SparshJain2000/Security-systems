@@ -1,0 +1,28 @@
+<% include partials/header %>
+    <div class="ui fixed inverted menu">
+
+        <div class="header item"><i class="shield alternative icon" style="font-size:2em"></i>Security Systems</div>
+
+        <a href="/users" class="orange item">Users</a>
+        <a href="/users/new" class="active green item" style="background:#4b5320">New User</a>
+        <a class="header item right" href="/admin"><i class="icon setting"></i>
+    </a>
+    </div>
+    <div class="ui main text container segment">
+        <div class="ui huge header">New User</div>
+        <form class="ui form" action="/users" method="POST">
+            <div class="field">
+                <label for="blog[title]">Title</label><input type="text" name="blog[title]" placeholder="TITLE">
+            </div>
+            <div class="field">
+                <label for="blog[image]">Image</label><input type="text" name="blog[image]" placeholder="image">
+            </div>
+
+            <div class="field"><label for="blog[body]">Content</label><textarea name="blog[body]" cols="30" rows="10"></textarea></div>
+            <div class="field"><input type="submit" class="ui big primary button"></div>
+
+
+        </form>
+
+    </div>
+    <% include partials/footer %>

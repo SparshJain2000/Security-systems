@@ -1,0 +1,194 @@
+<html>
+
+<head>
+    <title>Security Systems</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+    <link rel="stylesheet" href="div.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Grenze|Quicksand|Ubuntu&display=swap" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        /* .ui.fixed.inverted.menu {
+            background: steelblue;
+        } */
+        
+        body {
+            background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .5)), url("/stylesheets/img.jpg");
+        }
+        
+        h2 {
+            font-family: 'Open Sans', sans-serif;
+            color: white;
+        }
+        /*
+        .container {
+            position: absolute;
+            /*height: 30%;*/
+        /*width: 90%;*/
+        /*margin-left: 5%;*/
+        /*margin-right: 5%;*/
+        /*top: 14%;*/
+        /*font-family: 'Grenze', serif;
+            color: #25a44d;*/
+        /*text-align: center;*/
+        /*}*/
+        
+        .container {
+            /* margin-top: 10%; */
+            padding-top: 10%;
+            ;
+        }
+        
+        #para {
+            font-size: 50px;
+            color: black;
+            font-weight: 200;
+            padding: 0;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            font-family: "Arimo";
+        }
+        
+        .wrap {
+            color: #4b5320;
+        }
+        
+        .typewrite {
+            width: 100%;
+            margin: 0;
+            font-size: 650%;
+            text-align: center;
+            color: #4b5230;
+        }
+        
+        .motto_li {
+            display: inline;
+            color: white;
+            margin-right: 20px;
+            border: 1px solid transparent;
+            background: rgba(0, 0, 0, 0.5);
+            font-size: 20px;
+            border-radius: 5px;
+            padding: 4px 4px;
+            font-family: 'Quicksand', sans-serif;
+        }
+        
+        .motto_li:hover {
+            color: black;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        .nav-item:hover {
+            background: white;
+            border-radius: 6%;
+            color: black
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ui fixed inverted menu">
+        <div class="header item"><i class="shield alternate icon" style="font-size:2em"></i>Security Systems</div>
+
+        <a href="/users" class="orange item">Users</a>
+        <a href="/" class="item active">Home</a>
+        <div class="item active right" style="background:#4b5320;padding:0">
+            <a href="/admin" class="item right" style="height:100%"><i class="icon setting"></i></a>
+
+        </div>
+
+
+
+    </div>
+    <div class="ui fluid center aligned container">
+        <div class="ui vertical masthead center aligned segment">
+            <!-- <div cass="ui text container"> -->
+            <h1 class=" ui inverted header typewrite" style="font-size: 7vw;">
+                <span class="wrap"></span>
+            </h1>
+            <br><br><br>
+
+
+            <!-- <p id="para">Our motto: five steps to Zero Hunger</p> -->
+            <div style="padding:10px;border:0px solid transparent;border-radius:6px;background:rgba(0, 0, 0, 0.5)">
+                <h1 style="font-family: 'Source Sans Pro', sans-serif;font-size:4vw;color:#e2c461">POISON Security Services – The future of Security</h1>
+                <hr>
+                <h2 style="font-size: 2vw"><strong> POISON Security</strong>, electronic security firm that offers home security systems, burglar alarms & monitoring We protect what you treasure most.</h2>
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+    <script>
+        var TxtType = function(el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
+
+        TxtType.prototype.tick = function() {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+
+            if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+
+            this.el.innerHTML = ' <span class="wrap">' + this.txt + '</span>';
+
+            var that = this;
+            var delta = 200 - Math.random() * 100;
+
+            if (this.isDeleting) {
+                delta /= 2;
+            }
+
+            if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+            }
+
+            setTimeout(function() {
+                that.tick();
+            }, delta);
+        };
+        data_type = '[ "Poison Security Systems ..." ]';
+        data_period = "2000"
+        window.onload = function() {
+            var elements = document.getElementsByClassName('typewrite');
+            var toRotate = data_type;
+            var period = data_period;
+            new TxtType(elements[0], JSON.parse(toRotate), period);
+            // INJECT CSS
+            var css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = ".typewrite > .wrap { border-right: 0.07em solid black}";
+            document.body.appendChild(css);
+        };
+    </script>
+</body>
+
+</html>

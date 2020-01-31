@@ -1,0 +1,16 @@
+body {
+    font-size: 20px;
+}
+
+.heading {
+    margin-top: 3em;
+    text-align: center;
+}
+
+i.code.icon {
+    font-size: 1em;
+}
+
+.container.main {
+    margin-top: 7em;
+}
