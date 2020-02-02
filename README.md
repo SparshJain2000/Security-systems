@@ -6,7 +6,8 @@
   ###### database : MongoDB, firebase
  ## installation:
   ###### install mongoDB and NodeJS
+  ###### run app.js file
   ```javascript
-  run app.js file(node app.js)
+  node app.js
   ```
   
