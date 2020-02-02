@@ -4,7 +4,7 @@
   ###### front-end : html,css, semantic UI, Bootstrap, Javascript
   ###### back-end : nodejs, express, passport(authentication), mongoose
   ###### database : MongoDB, firebase
- ## installation:
+ ## Installation:
   ###### install mongoDB and NodeJS
   ###### run app.js file
   ```javascript
