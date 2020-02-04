@@ -7,7 +7,7 @@
  ## Installation:
   ###### install mongoDB and NodeJS
   ###### Clone the repository and run app.js file
-  ```javascript
+  ```bash
   node app.js
   ```
   
