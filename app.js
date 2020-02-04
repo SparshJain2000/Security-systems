@@ -51,11 +51,6 @@ var Blog = mongoose.model("Blog", blogSchema);
 var log = false;
 var name = "";
 
-// User.create({
-//     email: "sparsh.jain@gmail.com",
-//     password: "123sparsh123"
-// });
-// //==========================================================================================
 app.get("/", function(req, res) {
     res.render("home", { message: "" });
 });
@@ -124,8 +119,7 @@ app.post("/users", middleware.isLoggedIn, function(req, res) {
     })
 })
 app.get("/users/new", middleware.isLoggedIn, function(req, res) {
-    // if (!log) res.render("login", { message: "First Log In", name: name });
-    // else
+    
     res.render("new", { name: name });
 });
 app.get("/users/:id", middleware.isLoggedIn, function(req, res) {
