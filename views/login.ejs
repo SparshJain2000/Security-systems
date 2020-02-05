@@ -1,12 +1,9 @@
 <% include partials/header %>
     <div class="ui fixed inverted menu">
         <div class="header item"><i class="shield alternate icon" style="font-size:2em"></i>Security Systems</div>
-
         <a href="/users" class="orange item ">Users</a>
         <a href="/" class="orange item ">Home</a>
         <a class="header item right" href="/newUser">New Admin</a>
-
-
     </div>
     </div>
     <div class="ui middle aligned center aligned grid segment" style="background:rgba(0,0,0,.2);border:0px solid transparent;border-radius:5px;width:45%;margin:auto auto auto auto;padding-top:6em">
@@ -34,18 +31,13 @@
                     </div>
                     <input type="submit" class="ui fluid large submit button" style="color:white;background:#4b5320" value="Login">
                 </div>
-
                 <div class="ui error message"></div>
-
             </form>
             <% if(message!==""){%>
                 <div class="ui error message" style="background: rgba(0,0,0,.2);color:#eeaa6a">
                     <%= message %>
                 </div>
-                <%}%>
-                    <!-- <div class="ui message">
-                        New to us? <a href="/newUser">Sign Up</a>
-                    </div> -->
+            <%}%>
         </div>
     </div>
 
