@@ -1,17 +1,12 @@
 <% include partials/header %>
     <div class="ui fixed inverted menu">
-
         <div class="header item"><i class="shield alternate icon" style="font-size:2em"></i>Security Systems</div>
-
         <a href="/users" class="active item" style="background:#4B5320">Users</a>
         <a href="/" class="item ">Home</a>
-
-        <!-- <a href="/blogs/new" class="item">New Post</a> -->
         <a class="header item right" href="/admin"><i class="icon setting"></i>
 </div>
 <div class="ui main text container">
     <div class="ui hude header" style="color:#4B5320">
-
         <h1 class="heading"><i class="shield alternate icon"></i>Security Systems</h1>
     </div>
     <div class="ui top attached segment"
@@ -26,7 +21,6 @@
                     <a href="/users/<%=blog._id %>" class="header">
                         <%= blog.title%>
                     </a>
-
         <div class="meta">
             <span><%= blog.created.toDateString() %></span>
         </div>
@@ -36,37 +30,30 @@
         </div>
         <br><br>
         <div class="extra" style="float:left;display:inline">
-
-
             <div class="ui labeled button floated right inverted olive" tabindex="0">
                 <a href="/users/<%= blog._id %>" class="ui floated inverted olive basic button">
                                 Read More
-                                <i class="right chevron icon"></i>
-                            </a>
-
+                    <i class="right chevron icon"></i>
+                </a>
             </div>
-
-
             <div class="ui labeled button floated right" tabindex="0">
                 <div class="ui red button">
                     <i class="clock outline icon"></i> Timer
                 </div>
-                <a class="ui basic red left pointing label" id="timer"><span class="js-timeout">2:00</span>
-                            </a>
+                <a class="ui basic red left pointing label" id="timer">
+                        <span class="js-timeout">2:00</span>
+                </a>
             </div>
         </div>
     </div>
     </div>
     <br>
-
-
     <% }); %>
         </div>
         </div>
         </div>
         <script>
             var interval;
-
             function countdown() {
                 clearInterval(interval);
                 interval = setInterval(function() {
@@ -86,8 +73,6 @@
                     if (minutes == 0 && seconds == 0) clearInterval(interval);
                 }, 1000);
             }
-
-
             $('.js-timeout').text("2:00");
             countdown();
         </script>
