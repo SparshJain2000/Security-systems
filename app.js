@@ -16,13 +16,6 @@ app.use(require("express-session")({
     resave: false,
     saveUninitialized: false
 }));
-// var userSchema = new mongoose.Schema({
-//     first_name: String,
-//     last_name: String,
-//     email: String,
-//     password: String,
-// });
-// var User = mongoose.model("User", userSchema);
 app.use(function(req, res, next) {
     res.locals.currentUser = req.body;
     // console.log(res.localscurrentUser);
@@ -47,7 +40,6 @@ var blogSchema = new mongoose.Schema({
     created: { type: Date, default: Date.now }
 });
 var Blog = mongoose.model("Blog", blogSchema);
-
 var log = false;
 var name = "";
 
