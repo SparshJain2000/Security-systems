@@ -6,6 +6,10 @@
   ###### database : MongoDB, firebase
  ## Installation:
   ###### install mongoDB and NodeJS
+  ###### install node libraries
+  ```bash
+  npm install
+  ```
   ###### Clone the repository and run app.js file
   ```bash
   node app.js
