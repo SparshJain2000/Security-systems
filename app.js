@@ -99,7 +99,6 @@ app.post("/newUser", function(req, res, next) {
             //     res.redirect("/admin");
             // });
             res.redirect("/login");
-            // next();
         });
     } else {
         res.render("login", { message: "Incorrect Id" });
