@@ -5,17 +5,24 @@
   ###### back-end : nodejs, express, passport(authentication), mongoose
   ###### database : MongoDB, firebase
  ## Installation:
-  ###### Install mongoDB and NodeJS
-  ###### Clone the repository
+ #### Install Nodejs and MongoDB.
+ #### Clone the repository
   ```bash
   git clone https://github.com/SparshJain2000/Security-systems.git
   ```
-  ###### Install node libraries
+ #### Install node libraries
   ```bash
   npm install
   ```
-  ###### run app.js file
+ #### Declare environment variables
+ ###### Create a file .env
+  ```txt
+  DB_URL = 'Your mongo url'
+  SECRET = 'secret for Passport'
+  ID = 'ID for registration'
+  ```
+ #### Start the server (run app.js file)
   ```bash
   node app.js
   ```
-  
+
